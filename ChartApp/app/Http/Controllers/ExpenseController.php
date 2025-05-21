@@ -19,6 +19,7 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name'=>'required|string',
             'date' => 'required|date',
             'category' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0',
@@ -26,6 +27,7 @@ class ExpenseController extends Controller
 
         Expense::create([
             'user_id' => auth()->id(),
+            'name'=>$request->name,
             'date' => $request->date,
             'category' => $request->category,
             'amount' => $request->amount,
@@ -39,12 +41,14 @@ class ExpenseController extends Controller
         $expense = Expense::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
 
         $request->validate([
+            'name' => 'required|name',
             'date' => 'required|date',
             'category' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0',
         ]);
 
         $expense->update([
+            'name' => $request->name,
             'date' => $request->date,
             'category' => $request->category,
             'amount' => $request->amount,

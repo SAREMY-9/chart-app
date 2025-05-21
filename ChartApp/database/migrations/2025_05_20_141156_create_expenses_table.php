@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->date('date');
             $table->string('category');
+            $table->string('name');
             $table->decimal('amount', 10, 2);
             $table->timestamps();
             
