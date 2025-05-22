@@ -41,7 +41,7 @@ class ExpenseController extends Controller
         $expense = Expense::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
 
         $request->validate([
-            'name' => 'required|name',
+            'name' => 'required|string',
             'date' => 'required|date',
             'category' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0',

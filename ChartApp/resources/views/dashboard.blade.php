@@ -81,6 +81,7 @@
                                             <form action="{{ route('expenses.update', $expense->id) }}" method="POST" class="edit-form d-inline" style="display: none;">
                                                 @csrf
                                                 @method('PUT') 
+                                                <input type="hidden" name="name">
                                                 <input type="hidden" name="date">
                                                 <input type="hidden" name="category">
                                                 <input type="hidden" name="amount">
@@ -145,11 +146,13 @@
             this.style.display = 'none';
 
             const form = row.querySelector('.edit-form');
+            form.querySelector('input[name="name"]').value = row.querySelector('input[name="name"]').value;
             form.querySelector('input[name="date"]').value = row.querySelector('input[name="date"]').value;
             form.querySelector('input[name="category"]').value = row.querySelector('input[name="category"]').value;
             form.querySelector('input[name="amount"]').value = row.querySelector('input[name="amount"]').value;
 
             form.addEventListener('submit', function () {
+                form.querySelector('input[name="name"]').value = row.querySelector('input[name="name"]').value;
                 form.querySelector('input[name="date"]').value = row.querySelector('input[name="date"]').value;
                 form.querySelector('input[name="category"]').value = row.querySelector('input[name="category"]').value;
                 form.querySelector('input[name="amount"]').value = row.querySelector('input[name="amount"]').value;
