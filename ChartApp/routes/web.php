@@ -5,7 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('register');
+    //return redirect()->route('register');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {

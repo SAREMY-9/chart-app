@@ -1,6 +1,7 @@
 @extends('layouts.bootstrap')
 
 @section('content')
+
 <div class="container mt-4">
     <div class="row">
         
